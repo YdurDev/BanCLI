@@ -8,9 +8,11 @@ public class Main {
     
 
     public static void main(String[] args) {
-        // Initialize the database and create the user table if it doesn't exist
+        // Initialize the database and create the user&accounts tables if they don't exist
         DatabaseInitializer dbInitializer = new DatabaseInitializer();
         dbInitializer.createUserTable();
+        dbInitializer.createAccountTable();
+        dbInitializer.createAdminUser();
 
         // Start the API and handle user login
         API api = new API();

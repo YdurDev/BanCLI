@@ -7,7 +7,7 @@ import java.sql.Statement;
 
 public class ConnectionFactory {
 
-    public static final String URL = System.getenv("BANCLI_DB_URL");
+    public static final String URL = System.getenv("BANCLI_DB_PATH");
 
     //Here we can create a method to get a connection with auto-commit enabled
     public static Connection getAutoCommitConnection() {
@@ -22,5 +22,4 @@ public class ConnectionFactory {
             throw new RuntimeException("Error while creating auto-commit connection", e);
         }
     }
-    
 }

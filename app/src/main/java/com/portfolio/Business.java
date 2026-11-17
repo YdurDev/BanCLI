@@ -1,12 +1,10 @@
 package com.portfolio;
 import java.util.HashMap;
 import java.util.Map;
+
 public class Business {
+    //Remove this Map and replace it with a database connection to store registered users and their passwords
     public static Map<String, String> registeredUsers = new HashMap<>();
-    //------------------------Default Admin User made using "static initializer block"
-    static {
-        registeredUsers.put("admin", "admin");
-    }
     //------------------------Register
     public static Boolean registerUser(String username, String password) {
         return verifyRegistration(username, password);
