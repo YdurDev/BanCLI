@@ -7,10 +7,10 @@ import java.sql.Statement;
 
 public class ConnectionFactory {
 
-    private static final String URL = System.getenv("BANCLI_DB_URL");
+    public static final String URL = System.getenv("BANCLI_DB_URL");
 
     //Here we can create a method to get a connection with auto-commit enabled
-    private static Connection getAutoCommitConnection() {
+    public static Connection getAutoCommitConnection() {
         // Use a regular try-catch block to handle the SQLException while creating the connection
         try {
             Connection connection = DriverManager.getConnection(URL);
