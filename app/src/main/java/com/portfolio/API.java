@@ -10,7 +10,7 @@ public class API {
     public void login(){
         while (true) {
 
-            //------------------------Login()/Register()
+            //------------------------Main Menu
             System.out.println("o~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~o\n" + "  Welcome to BanCLI, Choose your action:");
             System.out.println("  [L] - Login [R] - Register [Q] - Quit");
             System.out.println("o~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~o\n");

@@ -1,10 +1,12 @@
 package com.portfolio;
 import java.util.HashMap;
 import java.util.Map;
+import com.portfolio.Database.UserRepository;
 
 public class Business {
     //Remove this Map and replace it with a database connection to store registered users and their passwords
     public static Map<String, String> registeredUsers = new HashMap<>();
+    //UserRepository userRepository = new UserRepository();
     //------------------------Register
     public static Boolean registerUser(String username, String password) {
         return verifyRegistration(username, password);
@@ -15,7 +17,7 @@ public class Business {
             System.out.println("User already registered.\n\n");
             return false;
         }
-        registeredUsers.put(username, password);
+        UserRepository.addUser(username, password);
         System.out.println("User registered successfully.\n\n");
         return true;
     }

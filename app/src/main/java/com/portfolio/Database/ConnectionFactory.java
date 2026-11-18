@@ -9,7 +9,7 @@ public class ConnectionFactory {
 
     public static final String URL = System.getenv("BANCLI_DB_PATH");
 
-    //Here we can create a method to get a connection with auto-commit enabled
+    //Here we can create a method to get -> configure(with auto-commit enabled) -> return a connection 
     public static Connection getAutoCommitConnection() {
         // Use a regular try-catch block to handle the SQLException while creating the connection
         try {
