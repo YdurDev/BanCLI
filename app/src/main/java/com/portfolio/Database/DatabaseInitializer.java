@@ -6,10 +6,8 @@ public class DatabaseInitializer {
 
     public void createUserTable(){
         String sql = "CREATE TABLE IF NOT EXISTS users (" +
-        "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
-        "username VARCHAR(255) NOT NULL UNIQUE, " +
-        "password VARCHAR(255) NOT NULL, " +
-        "created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP" +
+        "username VARCHAR(255) PRIMARY KEY, " +
+        "password VARCHAR(255) NOT NULL "  +
         ");";
 
         try (Connection conn = ConnectionFactory.getAutoCommitConnection();

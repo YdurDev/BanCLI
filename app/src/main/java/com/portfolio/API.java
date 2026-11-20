@@ -61,16 +61,17 @@ public class API {
                 String password = scn.nextLine();
 
                 Business.registerUser(username, password);
+                System.out.println("The new user has been registered  the DB!");
                 
             }
             //------------------------Test
             else if(userIn.equalsIgnoreCase("tst")){
-                System.out.println(Business.registeredUsers);
+                //System.out.println(Business.registeredUsers);
                 
             }
             //------------------------Invalid Input
             else if(userIn.equalsIgnoreCase("tst")){
-                System.out.println(Business.registeredUsers);
+                //System.out.println(Business.registeredUsers);
             }
             else{
                 System.out.println("\n" + "Invalid input");

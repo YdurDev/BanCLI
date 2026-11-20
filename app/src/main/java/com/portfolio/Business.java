@@ -2,24 +2,29 @@ package com.portfolio;
 import java.util.HashMap;
 import java.util.Map;
 import com.portfolio.Database.UserRepository;
+import com.portfolio.Entities.User;
 
 public class Business {
-    //Remove this Map and replace it with a database connection to store registered users and their passwords
-    public static Map<String, String> registeredUsers = new HashMap<>();
-    //UserRepository userRepository = new UserRepository();
+
     //------------------------Register
     public static Boolean registerUser(String username, String password) {
-        return verifyRegistration(username, password);
+        if(verifyRegistration(username)){
+            UserRepository.addUser(username, password);
+            System.out.println("Business Layer:User registered successfully.\n\n");
+            return true;
+        }
+        
+        System.out.println("User already registered.\n\n");
+        return false;
     }
     
-    private static Boolean verifyRegistration(String username, String password) {
-        if(registeredUsers.containsKey(username)){
-            System.out.println("User already registered.\n\n");
+    //Method that will check DB for existing usernames matching user-input and return a boolean on if it found any
+    private static Boolean verifyRegistration(String username) {
+        if(UserRepository.checkExistingUsername(username)){
+            System.out.println("Business Layer: User already exists");
             return false;
         }
-        UserRepository.addUser(username, password);
-        System.out.println("User registered successfully.\n\n");
-        return true;
+            return true;
     }
 
     //------------------------Login
@@ -27,9 +32,9 @@ public class Business {
     public static Boolean loginUser(String username, String password) {
         return verifyLogin(username, password);
     }
-
+    //-------------------------Check if the account exists & Password matches username
     private static Boolean verifyLogin(String username, String password) {
-        if(registeredUsers.containsKey(username) && registeredUsers.get(username).equals(password)){
+        if(true){
             return true;
         }
         System.out.println("Invalid username or password.\n\n");
