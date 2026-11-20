@@ -38,7 +38,7 @@ public class Business {
         if(UserRepository.checkCredentials(username, password)){
             return true;
         }
-        System.out.println("Business Layer:Invalid username or password.\n\n");
+        System.out.println("Business Layer:Invalid username or password.");
         return false;
     }
     

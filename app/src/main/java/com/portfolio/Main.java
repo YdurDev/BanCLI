@@ -13,7 +13,6 @@ public class Main {
         dbInitializer.createUserTable();
         dbInitializer.createAccountTable();
         dbInitializer.createAdminUser();
-
         // Start the API and handle user login
         API api = new API();
         api.login();

@@ -10,3 +10,10 @@
 ##--Going to opt for querying the DB everytime to verify user-credentials, later-on will change to keep a registeredUser's list in-memory (probably business layer) to cache data and reduce DB operations 
 
 ##-- Maybe add an entity that holds both username and password to later pull-from for verifying credentials
+
+
+#----------------------------------------------------------
+
+#-NEXT
+
+##--Add balance to user so we can start Implementing Bank Operations 
