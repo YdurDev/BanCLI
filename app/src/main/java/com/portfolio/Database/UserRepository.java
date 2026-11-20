@@ -45,7 +45,32 @@ public class UserRepository {
         }
     }
 
-    //-------------------------
+    //-------------------------Check credentials
+    public static boolean checkCredentials(String username, String password){
+        //-------Setup query-string
+        String sql = "SELECT username, password FROM users WHERE username = (?)";
+        //Setup Connection and prepared statement  in try-with-resources since both could throw SQLException
+        try(Connection conn = ConnectionFactory.getAutoCommitConnection();
+            //-------Plug SQL into prepared statement
+            PreparedStatement stmt = conn.prepareStatement(sql)) {
+                //-----------Set parameters  for the prepared statement as per usual
+            stmt.setString(1, username);
+            //-------Grab the executed query inside a ResultSet and extract the username and password from it
+            ResultSet rs = stmt.executeQuery();
+            String foundUsername = rs.getString(1);
+            String foundPassword = rs.getString(2);
+            //--------Use the extracted data to do the logic-check
+            //---------We already know the username exists since thats what we queried the DB for, [Confirm this later,probably not 100% true]
+            if(!password.equals(foundPassword)){
+                return false;
+            }
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return true;
+    }
 
 
 }

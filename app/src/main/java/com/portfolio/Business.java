@@ -7,14 +7,14 @@ import com.portfolio.Entities.User;
 public class Business {
 
     //------------------------Register
+        //-------------Call verifyRegistration in same-layer to verify registration
     public static Boolean registerUser(String username, String password) {
+        //------If it resolves to true go through with adding user
         if(verifyRegistration(username)){
             UserRepository.addUser(username, password);
             System.out.println("Business Layer:User registered successfully.\n\n");
             return true;
         }
-        
-        System.out.println("User already registered.\n\n");
         return false;
     }
     
@@ -28,16 +28,17 @@ public class Business {
     }
 
     //------------------------Login
-
     public static Boolean loginUser(String username, String password) {
+        //-----------Call verifyLogin in same-layer to verify login
         return verifyLogin(username, password);
     }
+
     //-------------------------Check if the account exists & Password matches username
     private static Boolean verifyLogin(String username, String password) {
-        if(true){
+        if(UserRepository.checkCredentials(username, password)){
             return true;
         }
-        System.out.println("Invalid username or password.\n\n");
+        System.out.println("Business Layer:Invalid username or password.\n\n");
         return false;
     }
     

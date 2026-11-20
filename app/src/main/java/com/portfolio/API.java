@@ -32,24 +32,27 @@ public class API {
 
                 if(Business.loginUser(username, password)){
                     System.out.println("Login successful.\n");
-                }
-                //------------------------Bank Operations
-                while(true){
-                    System.out.println("o~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~o\n" + "           Choose your action:");
-                    System.out.println("\t[D]-Deposit \t[W]-Withdraw\n\t[B]-Balance\t[T]-Transfer\n\t\t[Q]-Quit");
-                    System.out.println("o~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~o\n");
-                    String bankInput = scn.nextLine();
-                    //------------------------Deposit
-                    if(bankInput.equalsIgnoreCase("d")||bankInput.equalsIgnoreCase("deposit")){
-                        System.out.print("Amount to deposit: ");
-                        double amount = Double.parseDouble(scn.nextLine());
-                        //Business.deposit(username, amount);
-                    }
+                    //------------------------Bank Operations
+                    while(true){
+                        System.out.println("o~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~o\n" + "           Choose your action:");
+                        System.out.println("\t[D]-Deposit \t[W]-Withdraw\n\t[B]-Balance\t[T]-Transfer\n\t\t[Q]-Quit");
+                        System.out.println("o~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~o\n");
+                        String bankInput = scn.nextLine();
+                        //------------------------Deposit
+                        if(bankInput.equalsIgnoreCase("d")||bankInput.equalsIgnoreCase("deposit")){
+                            System.out.print("Amount to deposit: ");
+                            double amount = Double.parseDouble(scn.nextLine());
+                            //Business.deposit(username, amount);
+                        }
 
-                    if(bankInput.equalsIgnoreCase("q")||bankInput.equalsIgnoreCase("quit")||bankInput.equalsIgnoreCase("exit")){
-                        System.out.println("Exiting...\n\n");
-                        break;
+                        if(bankInput.equalsIgnoreCase("q")||bankInput.equalsIgnoreCase("quit")||bankInput.equalsIgnoreCase("exit")){
+                            System.out.println("Exiting...\n\n");
+                            break;
+                        }
                     }
+                } else{
+                    System.out.println("Login failed\n");
+                    
                 }
             }
 
@@ -60,8 +63,11 @@ public class API {
                 System.out.print("Password: ");
                 String password = scn.nextLine();
 
-                Business.registerUser(username, password);
-                System.out.println("The new user has been registered  the DB!");
+                if(Business.registerUser(username, password)){
+                    System.out.println("The new user has been registered  the DB!");
+                } else{
+                    System.out.println("Registration has failed.");
+                }
                 
             }
             //------------------------Test
